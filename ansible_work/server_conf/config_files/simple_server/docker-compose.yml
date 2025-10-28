@@ -1,0 +1,28 @@
+services:
+  ubuntu-server1:
+    build:
+      context: .
+      dockerfile: simple_ubuntu_server   # specify your Dockerfile if not named "Dockerfile"
+    container_name: ubuntu-server1
+    networks:
+      - my-bridge-net
+    volumes:
+      - ubuntu-data1:/data
+
+  ubuntu-server2:
+    build:
+      context: .
+      dockerfile: simple_ubuntu_server
+    container_name: ubuntu-server2
+    networks:
+      - my-bridge-net
+    volumes:
+      - ubuntu-data2:/data
+
+networks:
+  my-bridge-net:
+    driver: bridge
+
+volumes:
+  ubuntu-data1:
+  ubuntu-data2:
