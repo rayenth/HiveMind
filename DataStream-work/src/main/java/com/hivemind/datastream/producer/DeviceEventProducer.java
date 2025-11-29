@@ -83,6 +83,10 @@ public class DeviceEventProducer {
                 event.setSeverity("LOW");
             }
 
+            // Set new fields
+            event.setUsername(event.getUserId());
+            event.setAuthenticationStatus(success ? "SUCCESS" : "FAILURE");
+
             sendEvent(KafkaConfig.TOPIC_WORKSTATION, event);
             sleep(delayMs);
         }
@@ -196,6 +200,15 @@ public class DeviceEventProducer {
                 event.setSeverity("HIGH");
             } else {
                 event.setSeverity("LOW");
+            }
+
+            // Set new fields for Server events (simulating admin access)
+            if (eventType.contains("SERVICE") || eventType.contains("CRASH")) {
+                event.setUsername("system");
+                event.setAuthenticationStatus("NONE");
+            } else {
+                event.setUsername("admin");
+                event.setAuthenticationStatus("SUCCESS");
             }
 
             sendEvent(KafkaConfig.TOPIC_SERVER, event);
