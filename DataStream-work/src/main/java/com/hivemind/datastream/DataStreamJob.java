@@ -23,7 +23,7 @@ public class DataStreamJob {
         // Create Kafka Source
         KafkaSource<String> source = KafkaSource.<String>builder()
                 .setBootstrapServers(KafkaConfig.BOOTSTRAP_SERVERS)
-                .setTopics(Arrays.asList(KafkaConfig.ALL_TOPICS))
+                .setTopics(KafkaConfig.ALL_TOPICS)
                 .setGroupId(KafkaConfig.CONSUMER_GROUP_ID)
                 .setStartingOffsets(OffsetsInitializer.latest())
                 .setValueOnlyDeserializer(new SimpleStringSchema())

@@ -232,33 +232,42 @@ public class DeviceEventProducer {
     public static void main(String[] args) {
         DeviceEventProducer producer = new DeviceEventProducer(KafkaConfig.BOOTSTRAP_SERVERS);
 
-        System.out.println("🚀 Starting HiveMind Multi-Device Event Simulator\n");
+        System.out.println("🚀 Starting HiveMind Workstation Event Simulator (Phase 1)\n");
         System.out.println("=".repeat(60));
+        System.out.println("📌 Currently generating: WORKSTATION events only");
+        System.out.println("📌 Phase 2 (IoT, Network, Server) - Coming soon");
+        System.out.println("=".repeat(60) + "\n");
 
-        // Generate events from all device types in parallel threads
-        Thread workstationThread = new Thread(() -> producer.generateWorkstationEvents(20, 1000));
+        // Phase 1: Generate workstation events only
+        producer.generateWorkstationEvents(50, 1000);
 
-        Thread iotThread = new Thread(() -> producer.generateIoTEvents(30, 800));
-
-        Thread networkThread = new Thread(() -> producer.generateNetworkEvents(15, 1200));
-
-        Thread serverThread = new Thread(() -> producer.generateServerEvents(25, 1000));
-
-        // Start all threads
-        workstationThread.start();
-        iotThread.start();
-        networkThread.start();
-        serverThread.start();
-
-        // Wait for all to complete
-        try {
-            workstationThread.join();
-            iotThread.join();
-            networkThread.join();
-            serverThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        /*
+         * Phase 2: Uncomment when ready for multi-device support
+         * // Generate events from all device types in parallel threads
+         * Thread workstationThread = new Thread(() ->
+         * producer.generateWorkstationEvents(20, 1000));
+         * Thread iotThread = new Thread(() -> producer.generateIoTEvents(30, 800));
+         * Thread networkThread = new Thread(() -> producer.generateNetworkEvents(15,
+         * 1200));
+         * Thread serverThread = new Thread(() -> producer.generateServerEvents(25,
+         * 1000));
+         * 
+         * // Start all threads
+         * workstationThread.start();
+         * iotThread.start();
+         * networkThread.start();
+         * serverThread.start();
+         * 
+         * // Wait for all to complete
+         * try {
+         * workstationThread.join();
+         * iotThread.join();
+         * networkThread.join();
+         * serverThread.join();
+         * } catch (InterruptedException e) {
+         * e.printStackTrace();
+         * }
+         */
 
         System.out.println("\n" + "=".repeat(60));
         System.out.println("✅ Event generation completed!");
