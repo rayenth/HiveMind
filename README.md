@@ -161,7 +161,7 @@ curl -X POST http://localhost:8080/api/events \
 
 ## 📝 License
 
-Projet académique - ENISO (École Nationale d'Ingénieurs de Sfax)
+Projet académique - ENISO (École Nationale d'Ingénieurs de Sousse)
 
 ---
 
