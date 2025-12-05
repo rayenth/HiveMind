@@ -1,0 +1,67 @@
+so here is what i did 
+i made and ssh key pair without a passphrase  
+
+$ ssh-keygen -t ed25519 ansible
+
+
+then installed the nano and the openssh-server on the container i propably should have edited that in the dockerfile of the containers but i am just lazy
+$ ssh root@172.19.0.2
+
+
+$ apt update
+$ apt install nano 
+$ apt intall openssh-server
+
+start the service 
+
+$ service ssh start
+
+allow ssh in the ssh_config
+$ nano /etc/ssh/ssh_config
+and these lines:
+
+PermitRootLogin yes
+PasswordAuthentication yes
+
+
+then restart the service 
+$ service ssh restart
+
+
+then log out and 
+
+add the ssh key to the docker ubuntu containers 
+
+$ ssh-copy-id -i /home/mr-cookie/ssh/ansible.pub root@172.19.0.2       // the ip address isn't really fixed so you have to figure it out every time you start the container and also you need to use the root or create a user on the container and use that as your user
+
+
+then here run the ansible command this will ping all present devices in the 
+
+
+$ ansible all --key-file /home/mr-cookie/.ssh/ansible -i inventory -m ping
+
+
+all : all ip addresses listed in the inventory it can be replaces with :
+* = all
+!172.19.0.2 = all ips except this one
+dhcp-server = ping the ips that are a group of the group dhcp-server
+
+
+now this command is longer then it should be 
+so we make a file we call it ansible.cfg 
+and we write this to it
+
+[defaults]
+inventory = inventory (your inventory name)
+private_key_file = ~/.ssh/ansible (your private key)
+
+
+
+
+
+
+
+
+
+
+and this should end the simple ubuntu server part of the project XD

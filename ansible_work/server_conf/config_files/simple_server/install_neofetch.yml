@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  remote_user: root
+  tasks:
+    - name: install neofetch package
+      apt:
+        name: neofetch
+        state: present
+
