@@ -11,7 +11,8 @@
 	<groupId>caravane</groupId>
 	<artifactId>HiveMind</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>HiveMind</name>
+    <packaging>pom</packaging>
+    <name>HiveMind</name>
 	<description>project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -20,7 +21,13 @@
 	<developers>
 		<developer/>
 	</developers>
-	<scm>
+    <modules>
+        <module>Agents</module>
+        <module>Agents</module>
+        <module>Agents</module>
+        <module>DataStream_work</module>
+    </modules>
+    <scm>
 		<connection/>
 		<developerConnection/>
 		<tag/>
