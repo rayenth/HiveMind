@@ -51,11 +51,18 @@ public class LogTailerPublisher {
     private void startTailing(File logFile) {
         executorService.submit(() -> {
             try {
-                Tailer.builder()
-                        .setFile(logFile)
-                        .setTailerListener(new TailerListenerAdapter() {
-                            @Override
-                            public void handle(String line) {
+                long filePointer = logFile.length(); // Start from end of file
+                System.out.println("📋 Started monitoring: " + logFile.getAbsolutePath());
+
+                while (!Thread.currentThread().isInterrupted()) {
+                    long fileLength = logFile.length();
+
+                    if (fileLength > filePointer) {
+                        // File has grown, read new content
+                        try (java.io.RandomAccessFile raf = new java.io.RandomAccessFile(logFile, "r")) {
+                            raf.seek(filePointer);
+                            String line;
+                            while ((line = raf.readLine()) != null) {
                                 String severity = detectSeverity(line);
                                 LogEntryEvent event = new LogEntryEvent(
                                         LogTailerPublisher.this,
@@ -64,16 +71,21 @@ public class LogTailerPublisher {
                                         severity);
                                 eventPublisher.publishEvent(event);
                             }
-                        })
-                        .setDelayDuration(java.time.Duration.ofSeconds(1))
-                        .setTailFromEnd(true)
-                        .get()
-                        .run();
+                            filePointer = raf.getFilePointer();
+                        }
+                    } else if (fileLength < filePointer) {
+                        // File was truncated, start from beginning
+                        filePointer = 0;
+                    }
+
+                    Thread.sleep(1000); // Poll every second
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             } catch (Exception e) {
                 System.err.println("❌ Error tailing log file " + logFile.getAbsolutePath() + ": " + e.getMessage());
             }
         });
-        System.out.println("📋 Started monitoring: " + logFile.getAbsolutePath());
     }
 
     private String detectSeverity(String logLine) {
