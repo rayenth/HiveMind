@@ -1,0 +1,5 @@
+the overall idea here is that i used the observer design pattern
+i have events, they are my data types "DTO" the objects i handle they are gotten form the publishers
+then these publishers report these events to the kafkaforwarder service that will filter the events and choose what to
+send to the kafka producer service, and the final step the kafkaproducer will do the actual sending of the data to
+the kafka server.

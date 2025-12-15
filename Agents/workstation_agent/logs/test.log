@@ -1,5 +1,0 @@
-2025-12-13 14:06:16 INFO: Test log monitoring system started
-2025-12-13 14:06:51 ERROR: Database connection timeout
-2025-12-13 14:06:51 CRITICAL: System memory exhausted
-2025-12-13 14:06:51 WARN: High CPU usage detected
-2025-12-13 14:12:00 CRITICAL: Kafka connection test after restart
