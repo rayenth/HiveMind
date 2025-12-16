@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "filename": "test_batch_1.log",
+    "processing_date": "2025-12-07T13:33:28.182356",
+    "total_lines": 3,
+    "processed_lines": 3,
+    "model_used": "llama3:latest",
+    "mode": "direct"
+  },
+  "statistics": {
+    "anomalies_detected": 2,
+    "warnings_detected": 0,
+    "total_issues": 2,
+    "anomaly_percentage": 66.66666666666666,
+    "issue_percentage": 66.66666666666666,
+    "most_common_category": "Network Attack",
+    "average_confidence": 0.7999999999999999
+  },
+  "summary": {
+    "status": "ANOMALIES_DETECTED",
+    "risk_level": "MEDIUM",
+    "recommendation": "Investigation immédiate recommandée"
+  },
+  "top_anomalies": [
+    {
+      "line_number": 1,
+      "original_log": "DDoS attack in progress",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 1.0,
+        "reason": "DDoS attack detected",
+        "category": "Network Attack",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:17.350904"
+    },
+    {
+      "line_number": 2,
+      "original_log": "SQL injection attempt detected",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.9,
+        "reason": "tentative de injection SQL détectée",
+        "category": "SQL Injection",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:22.233892"
+    }
+  ],
+  "top_warnings": [],
+  "sample_results": [
+    {
+      "line_number": 1,
+      "original_log": "DDoS attack in progress",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 1.0,
+        "reason": "DDoS attack detected",
+        "category": "Network Attack",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:17.350904"
+    },
+    {
+      "line_number": 2,
+      "original_log": "SQL injection attempt detected",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.9,
+        "reason": "tentative de injection SQL détectée",
+        "category": "SQL Injection",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:22.233892"
+    },
+    {
+      "line_number": 3,
+      "original_log": "Firewall blocked connection from 45.33.32.156",
+      "analysis": {
+        "anomaly": false,
+        "confidence": 0.5,
+        "reason": "Connexion bloquée par le pare-feu, pas de tentative d'accès non autorisé",
+        "category": "None",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:28.130904"
+    }
+  ]
+}

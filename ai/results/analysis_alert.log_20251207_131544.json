@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "filename": "alert.log",
+    "processing_date": "2025-12-07T13:15:44.898572",
+    "total_lines": 3,
+    "processed_lines": 3,
+    "model_used": "llama3:latest",
+    "mode": "direct"
+  },
+  "statistics": {
+    "anomalies_detected": 1,
+    "anomaly_percentage": 33.33333333333333,
+    "most_common_category": "Network Scan",
+    "average_confidence": 0.9333333333333332
+  },
+  "summary": {
+    "status": "ANOMALIES_DETECTED",
+    "risk_level": "LOW",
+    "recommendation": "Investigation immédiate recommandée"
+  },
+  "top_anomalies": [
+    {
+      "line_number": 1,
+      "original_log": "ÿþP\u0000o\u0000r\u0000t\u0000 \u0000s\u0000c\u0000a\u0000n\u0000 \u0000d\u0000e\u0000t\u0000e\u0000c\u0000t\u0000e\u0000d\u0000",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.8,
+        "reason": "Port scan detected, potentially indicative of reconnaissance activity",
+        "category": "Network Scan",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:15:35.719328"
+    }
+  ],
+  "sample_results": [
+    {
+      "line_number": 1,
+      "original_log": "ÿþP\u0000o\u0000r\u0000t\u0000 \u0000s\u0000c\u0000a\u0000n\u0000 \u0000d\u0000e\u0000t\u0000e\u0000c\u0000t\u0000e\u0000d\u0000",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.8,
+        "reason": "Port scan detected, potentially indicative of reconnaissance activity",
+        "category": "Network Scan",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:15:35.719328"
+    },
+    {
+      "line_number": 2,
+      "original_log": "\u0000",
+      "analysis": {
+        "anomaly": false,
+        "confidence": 1.0,
+        "reason": "Le log ne contient pas de caractère spécial ou de séquence inhabituelle.",
+        "category": "None",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:15:40.238066"
+    },
+    {
+      "line_number": 3,
+      "original_log": "\u0000",
+      "analysis": {
+        "anomaly": false,
+        "confidence": 1.0,
+        "reason": "Le log ne contient pas de caractère spécial ou de séquence inhabituelle.",
+        "category": "None",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:15:44.887717"
+    }
+  ]
+}

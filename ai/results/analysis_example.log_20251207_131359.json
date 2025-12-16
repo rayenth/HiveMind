@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "filename": "example.log",
+    "processing_date": "2025-12-07T13:13:59.321114",
+    "total_lines": 2,
+    "processed_lines": 2,
+    "model_used": "llama3:latest",
+    "mode": "direct"
+  },
+  "statistics": {
+    "anomalies_detected": 0,
+    "anomaly_percentage": 0.0,
+    "most_common_category": "none",
+    "average_confidence": 0.75
+  },
+  "summary": {
+    "status": "CLEAN",
+    "risk_level": "LOW",
+    "recommendation": "Aucune action requise"
+  },
+  "top_anomalies": [],
+  "sample_results": [
+    {
+      "line_number": 1,
+      "original_log": "Connexion SSH réussie depuis 192.168.1.100",
+      "analysis": {
+        "anomaly": false,
+        "confidence": 1.0,
+        "reason": "Connexion SSH normale depuis une adresse IP connue",
+        "category": "None",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:13:53.674088"
+    },
+    {
+      "line_number": 2,
+      "original_log": "Tentative de connexion échouée pour l'utilisateur admin",
+      "analysis": {
+        "anomaly": false,
+        "confidence": 0.5,
+        "reason": "La tentative de connexion échouée pour l'utilisateur admin est normale si elle est liée à une activité autorisée.",
+        "category": "None",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:13:59.310614"
+    }
+  ]
+}

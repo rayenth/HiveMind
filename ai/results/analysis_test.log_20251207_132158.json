@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "filename": "test.log",
+    "processing_date": "2025-12-07T13:21:58.501699",
+    "total_lines": 1,
+    "processed_lines": 1,
+    "model_used": "llama3:latest",
+    "mode": "direct"
+  },
+  "statistics": {
+    "anomalies_detected": 0,
+    "anomaly_percentage": 0.0,
+    "most_common_category": "none",
+    "average_confidence": 1.0
+  },
+  "summary": {
+    "status": "CLEAN",
+    "risk_level": "LOW",
+    "recommendation": "Aucune action requise"
+  },
+  "top_anomalies": [],
+  "sample_results": [
+    {
+      "line_number": 1,
+      "original_log": "﻿Contenu normal",
+      "analysis": {
+        "anomaly": false,
+        "confidence": 1.0,
+        "reason": "Le contenu du log est normal et ne présente pas de caractéristiques anormales.",
+        "category": "None",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:21:58.490979"
+    }
+  ]
+}

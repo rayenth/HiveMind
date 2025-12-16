@@ -1,7 +1,0 @@
-target/
-.idea/
-*.iml
-.DS_Store
-mosquitto/data/
-mosquitto/log/
-dependency-reduced-pom.xml

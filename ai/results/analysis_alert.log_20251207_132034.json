@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "filename": "alert.log",
+    "processing_date": "2025-12-07T13:20:34.785592",
+    "total_lines": 3,
+    "processed_lines": 3,
+    "model_used": "llama3:latest",
+    "mode": "direct"
+  },
+  "statistics": {
+    "anomalies_detected": 2,
+    "anomaly_percentage": 66.66666666666666,
+    "most_common_category": "Network Scan",
+    "average_confidence": 0.9
+  },
+  "summary": {
+    "status": "ANOMALIES_DETECTED",
+    "risk_level": "LOW",
+    "recommendation": "Investigation immédiate recommandée"
+  },
+  "top_anomalies": [
+    {
+      "line_number": 1,
+      "original_log": "﻿🚨 ALERTE : Port scan détecté depuis 45.33.32.156",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.9,
+        "reason": "Port scan détecté, ce qui peut être un signe d'une tentative de reconnaissance pour une attaque future",
+        "category": "Network Scan",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:20:24.741892"
+    },
+    {
+      "line_number": 2,
+      "original_log": "⚠️  Multiple failed logins for user root",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.8,
+        "reason": "Tentative de connexion multiple pour un compte root non autorisé",
+        "category": "Authentication",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:20:28.989384"
+    }
+  ],
+  "sample_results": [
+    {
+      "line_number": 1,
+      "original_log": "﻿🚨 ALERTE : Port scan détecté depuis 45.33.32.156",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.9,
+        "reason": "Port scan détecté, ce qui peut être un signe d'une tentative de reconnaissance pour une attaque future",
+        "category": "Network Scan",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:20:24.741892"
+    },
+    {
+      "line_number": 2,
+      "original_log": "⚠️  Multiple failed logins for user root",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.8,
+        "reason": "Tentative de connexion multiple pour un compte root non autorisé",
+        "category": "Authentication",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:20:28.989384"
+    },
+    {
+      "line_number": 3,
+      "original_log": "✅ Backup completed successfully",
+      "analysis": {
+        "anomaly": false,
+        "confidence": 1.0,
+        "reason": "L'enregistrement indique une opération de sauvegarde réussie, ce qui est un comportement normal dans le contexte.",
+        "category": "None",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:20:34.774851"
+    }
+  ]
+}

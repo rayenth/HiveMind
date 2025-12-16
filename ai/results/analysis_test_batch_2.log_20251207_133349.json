@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "filename": "test_batch_2.log",
+    "processing_date": "2025-12-07T13:33:49.603697",
+    "total_lines": 3,
+    "processed_lines": 3,
+    "model_used": "llama3:latest",
+    "mode": "direct"
+  },
+  "statistics": {
+    "anomalies_detected": 2,
+    "warnings_detected": 0,
+    "total_issues": 2,
+    "anomaly_percentage": 66.66666666666666,
+    "issue_percentage": 66.66666666666666,
+    "most_common_category": "DDoS",
+    "average_confidence": 0.7666666666666666
+  },
+  "summary": {
+    "status": "ANOMALIES_DETECTED",
+    "risk_level": "MEDIUM",
+    "recommendation": "Investigation immédiate recommandée"
+  },
+  "top_anomalies": [
+    {
+      "line_number": 1,
+      "original_log": "DDoS attack in progress",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 1.0,
+        "reason": "DDoS attack en cours",
+        "category": "DDoS",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:35.674643"
+    },
+    {
+      "line_number": 3,
+      "original_log": "Multiple failed login attempts from 10.0.0.5",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.8,
+        "reason": "Nombre élevé de tentatives d'authentification infructueuses",
+        "category": "Tentative d'accès non autorisé",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:49.552667"
+    }
+  ],
+  "top_warnings": [],
+  "sample_results": [
+    {
+      "line_number": 1,
+      "original_log": "DDoS attack in progress",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 1.0,
+        "reason": "DDoS attack en cours",
+        "category": "DDoS",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:35.674643"
+    },
+    {
+      "line_number": 2,
+      "original_log": "Firewall blocked connection from 45.33.32.156",
+      "analysis": {
+        "anomaly": false,
+        "confidence": 0.5,
+        "reason": "Connexion bloquée par le pare-feu, mais pas de tentative d'accès non autorisé ou de scan de ports",
+        "category": "None",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:42.568116"
+    },
+    {
+      "line_number": 3,
+      "original_log": "Multiple failed login attempts from 10.0.0.5",
+      "analysis": {
+        "anomaly": true,
+        "confidence": 0.8,
+        "reason": "Nombre élevé de tentatives d'authentification infructueuses",
+        "category": "Tentative d'accès non autorisé",
+        "model_used": "llama3:latest"
+      },
+      "timestamp": "2025-12-07T13:33:49.552667"
+    }
+  ]
+}

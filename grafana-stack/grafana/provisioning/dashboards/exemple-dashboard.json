@@ -1,0 +1,11 @@
+{
+  "title": "Example Dashboard",
+  "panels": [
+    {
+      "type": "text",
+      "title": "Welcome",
+      "gridPos": { "x": 0, "y": 0, "w": 24, "h": 4 },
+      "options": { "content": "Hello Grafana!" }
+    }
+  ]
+}
