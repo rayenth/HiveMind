@@ -1,11 +1,11 @@
 server:
-  port: 8082
+  port: 8081
 
 spring:
   application:
     name: anomaly-detection-service
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     consumer:
       group-id: anomaly-group
       auto-offset-reset: earliest

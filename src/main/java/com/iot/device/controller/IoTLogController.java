@@ -1,10 +1,13 @@
 package com.iot.device.controller;
 
 import com.iot.device.model.DeviceLog;
+import com.iot.device.model.DeviceLogInput;
 import com.iot.device.service.IoTLogService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -24,8 +27,15 @@ public class IoTLogController {
     }
 
     @PostMapping("/send-log/custom")
-    public ResponseEntity<DeviceLog> sendCustomLog(@org.springframework.web.bind.annotation.RequestParam double temperature) {
+    public ResponseEntity<DeviceLog> sendCustomLog(@RequestParam double temperature) {
         DeviceLog log = ioTLogService.generateAndSendLog(temperature);
         return ResponseEntity.ok(log);
     }
+
+    @PostMapping("/ingest-log")
+    public ResponseEntity<DeviceLog> ingestLog(@RequestBody DeviceLogInput deviceLogInput) {
+        DeviceLog log = ioTLogService.generateAndSendLogFromInput(deviceLogInput);
+        return ResponseEntity.ok(log);
+    }
+
 }
