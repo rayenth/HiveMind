@@ -1,17 +1,18 @@
 package com.security.backend.model;
 
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
-import org.springframework.data.cassandra.core.mapping.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Table("devices")
+@Table("laptops")
 @Data
 @AllArgsConstructor
-public class Device {
+public class Laptop {
     @PrimaryKey
     private UUID id;
 
@@ -19,9 +20,13 @@ public class Device {
     private String macAddress;
 
     private String name;
-    private String type; // ROUTER, SERVER, IOT
     private String ipAddress;
     private String status; // ONLINE, OFFLINE, COMPROMISED
+
+    @Column("os_version")
+    private String osVersion;
+
+    private String owner;
 
     private LocalDateTime lastSeen;
 
@@ -31,7 +36,7 @@ public class Device {
     @Column("updated_at")
     private LocalDateTime updatedAt;
 
-    public Device() {
+    public Laptop() {
         this.id = UUID.randomUUID();
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();

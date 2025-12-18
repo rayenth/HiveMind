@@ -15,7 +15,9 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/actuator/**", "/api/events", "/api/health").permitAll()
+                        .requestMatchers("/", "/error", "/api/auth/register", "/actuator/**",
+                                "/api/events", "/api/health")
+                        .permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(basic -> {
                 }); // Using Basic Auth for simplicity initially

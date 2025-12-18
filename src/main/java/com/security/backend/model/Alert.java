@@ -19,6 +19,11 @@ public class Alert {
     private String message;
     private String severity;
     private String status;
+    private String source; // SYSTEM, AI_MODULE, MANUAL
+
+    @Column("device_id")
+    private String deviceId;
+
     private LocalDateTime timestamp;
 
     @Column("created_at")
@@ -29,6 +34,8 @@ public class Alert {
 
     public Alert() {
         this.id = UUID.randomUUID();
+        this.status = "NEW";
+        this.source = "SYSTEM";
         this.timestamp = LocalDateTime.now();
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();

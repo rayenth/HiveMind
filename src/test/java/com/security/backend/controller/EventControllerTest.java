@@ -38,8 +38,7 @@ public class EventControllerTest {
         event.setEventType("LOGIN_FAILURE");
         event.setDeviceId("WS-001");
         event.setSeverity("CRITICAL");
-        event.setUsername("alice");
-        event.setAuthenticationStatus("FAILURE");
+        event.setMetadata("Simple test event");
 
         when(service.processEvent(any(SecurityEvent.class))).thenReturn(event);
 
