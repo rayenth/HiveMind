@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: security-backend
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+#   security:
+#     user:
+#       name: admin
+#       password: admin123
+  cassandra:
+    keyspace-name: security_keyspace
+    contact-points: 127.0.0.1:9042
+    local-datacenter: datacenter1
+    schema-action: create_if_not_exists
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: security-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+datastax-java-driver:
+  basic:
+    load-balancing-policy:
+      local-datacenter: datacenter1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics

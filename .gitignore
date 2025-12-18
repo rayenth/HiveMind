@@ -31,4 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 test_kafka_connection.sh
+=======
+>>>>>>> 778bd7e (this is my work)
