@@ -1,0 +1,10 @@
+ديسمبر 18 21:52:11 maya sudo[24587]: pam_unix(sudo:session): session closed for user root
+ديسمبر 18 21:52:14 maya sudo[24704]: pam_unix(sudo:session): session opened for user root(uid=0) by mrc(uid=1000)
+ديسمبر 18 21:52:14 maya sudo[24704]: pam_unix(sudo:session): session closed for user root
+ديسمبر 18 21:52:21 maya sudo[24736]: pam_unix(sudo:session): session opened for user root(uid=0) by mrc(uid=1000)
+ديسمبر 18 21:53:24 maya sudo[25085]: pam_unix(sudo:session): session opened for user root(uid=0) by mrc(uid=1000)
+ديسمبر 18 21:53:24 maya sudo[25085]: pam_unix(sudo:session): session closed for user root
+ديسمبر 18 21:53:54 maya sudo[25111]: pam_unix(sudo:session): session opened for user root(uid=0) by mrc(uid=1000)
+ديسمبر 18 21:53:54 maya sudo[25111]: pam_unix(sudo:session): session closed for user root
+ديسمبر 18 21:54:38 maya sudo[25169]: pam_unix(sudo:session): session opened for user root(uid=0) by mrc(uid=1000)
+ديسمبر 18 21:54:44 maya sudo[25169]: pam_unix(sudo:session): session closed for user root
