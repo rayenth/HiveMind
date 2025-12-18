@@ -19,14 +19,20 @@ public class KafkaForwarderService implements EventSubscriber {
     @EventListener
     @Override
     public void handlefilechanged(FileChangedEvent event) {
-        if (event.getFilename().endsWith(".txt") == true) {
-            // Send to DataStream Kafka topic with proper JSON format
+        // Keep your original check
+        if (event.getFilename().endsWith(".log") == true) {
+
+            // LOGIC ADDED: We must include event.getNewcontent() in the JSON
+            // so the subscriber actually receives the log data.
             String json = String.format(
-                    "{\"eventType\":\"FILE_CHANGED\",\"deviceId\":\"WS-AGENT\",\"severity\":\"LOW\",\"filename\":\"%s\",\"changeType\":\"%s\",\"timestamp\":%d}",
+                    "{\"eventType\":\"FILE_CHANGED\",\"deviceId\":\"WS-AGENT\",\"severity\":\"LOW\",\"filename\":\"%s\",\"changeType\":\"%s\",\"content\":\"%s\",\"timestamp\":%d}",
                     event.getFilename(),
-                    event.getChngetype(),
+                    event.getTypechange(), // Ensure this getter name matches your Event class
+                    event.getNewcontent().replace("\"", "\\\""), // Sanitize for JSON
                     System.currentTimeMillis());
+
             kp.send("device-events-workstation", json);
+            System.out.println("Forwarded to Kafka: " + event.getFilename());
         }
     }
 }

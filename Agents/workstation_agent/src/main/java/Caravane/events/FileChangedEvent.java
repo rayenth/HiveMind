@@ -13,13 +13,13 @@ public class FileChangedEvent {
 
 
     private final String filename;
-    private final String chngetype;
+    private String changetype;
     private final String newcontent;
 
 
     public FileChangedEvent(String filename, String chngetype, String newcontent) {
         this.filename = filename;
-        this.chngetype = chngetype;
+        this.changetype = chngetype;
         this.newcontent = newcontent;
     }
 
@@ -28,7 +28,7 @@ public class FileChangedEvent {
     }
 
     public String getChngetype() {
-        return chngetype;
+        return changetype;
     }
 
 
@@ -36,19 +36,31 @@ public class FileChangedEvent {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         FileChangedEvent that = (FileChangedEvent) o;
-        return Objects.equals(filename, that.filename) && Objects.equals(chngetype, that.chngetype) && Objects.equals(newcontent, that.newcontent);
+        return Objects.equals(filename, that.filename) && Objects.equals(changetype, that.changetype) && Objects.equals(newcontent, that.newcontent);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(filename, chngetype, newcontent);
+        return Objects.hash(filename, changetype, newcontent);
+    }
+
+    public String getNewcontent() {
+        return newcontent;
     }
 
     @Override
     public String toString() {
         return "FileChangedEvent{" +
                 "filename='" + filename + '\'' +
-                ", chngetype='" + chngetype + '\'' +
+                ", chngetype='" + changetype + '\'' +
                 '}';
+    }
+
+    public Object getTypechange() {
+        return changetype;
+    }
+
+    public void setTypechange(Object typechange) {
+        this.changetype = typechange.toString();
     }
 }
